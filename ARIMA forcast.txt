@@ -1,0 +1,52 @@
+data<-read.csv("newdatagold.csv",header=TRUE)
+data
+dataa<-data.frame(data$ï..Date,data$Price)
+dataa
+
+attach(dataa)
+library(MASS)
+library(tseries)
+library(forecast)
+
+lnstock=log(as.numeric(data$Price[1:36]))
+lnstock
+
+acf(lnstock, lag.max=20)
+
+pacf(lnstock, lag.max=20)
+
+difflnstock=diff(lnstock,1)
+difflnstock
+adf.test(lnstock)
+adf.test(difflnstock)
+
+
+pricearima<- ts(lnstock, start = c(2016,18), frequency = 12)
+pricearima
+fitlnstock<-auto.arima(pricearima)
+fitlnstock
+summary(fitlnstock)
+plot(pricearima,type='l')
+title('Gold Price')
+exp(lnstock)
+
+
+forcastedvalues_ln=forecast(fitlnstock,h=13)
+forcastedvalues_ln
+plot(forcastedvalues_ln)
+
+
+
+forecastedvaluesextracted=as.numeric(forcastedvalues_ln$mean)
+finalforcastvalues=exp(forecastedvaluesextracted)
+finalforcastvalues
+
+
+df<-data.frame(data$Price[36:61],finalforcastvalues)
+col_heading<-c("Actual Price","Forecasted price")
+names(df)<-col_heading
+attach(df)
+
+percentage_error=((df$`Actual Price`- df$`Forecasted price`)/(df$`Actual Price`))
+percentage_error
+mean(percentage_error)
