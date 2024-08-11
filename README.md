@@ -109,6 +109,10 @@ The trendlines for stock commodities corresponding to the years are shown below:
 - **Fig.3:** Gold
 - **Fig.4:** Silver
 
+  <img width="245" alt="image" src="https://github.com/user-attachments/assets/2175310c-ee48-4aef-aa3a-0f452a238b8a">
+<img width="221" alt="image" src="https://github.com/user-attachments/assets/74c16fdf-a5af-4ae6-9168-05ad7ea9c799">
+<img width="362" alt="image" src="https://github.com/user-attachments/assets/9338c8ad-d9de-4aa8-8d4a-46ec3af2c3cc">
+
 ## V. Interpretation
 
 The graphs indicate that stock prices peaked in 2012. These trends help guide the decision-making process, allowing investors to make more informed choices based on historical data and predicted trends.
